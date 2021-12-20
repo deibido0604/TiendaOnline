@@ -9,14 +9,24 @@ namespace TiendaOnline.BL
     public class ProductosBL
     {
         Contexto _contexto;
+        public List<Producto> ListadeProductos { get; set; }
         public ProductosBL()
         {
             _contexto = new Contexto();
+            ListadeProductos = new List<Producto>();
         }
         public List<Producto> ObtenerProductos()
         {
 
-            return _contexto.Productos.ToList();
+            ListadeProductos =  _contexto.Productos.ToList();
+
+            return ListadeProductos;
+        }
+
+        public void GuardarProducto(Producto producto)
+        {
+            _contexto.Productos.Add(producto);
+            _contexto.SaveChanges();
         }
     }
 }

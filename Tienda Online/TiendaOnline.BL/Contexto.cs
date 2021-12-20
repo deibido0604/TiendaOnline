@@ -11,7 +11,7 @@ namespace TiendaOnline.BL
     public class Contexto : DbContext
     {
         public Contexto() : base(@"Data Source=(LocalDb)\MSSQLLocalDB;AttachDBFilename=" +
-            Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\TiendaOnlineDB.mdf")
+            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TiendaOnlineDB.mdf")
         {
 
         }

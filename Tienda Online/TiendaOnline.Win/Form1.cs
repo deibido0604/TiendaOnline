@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TiendaOnline.BL;
 
 namespace TiendaOnline.Win
 {
@@ -15,6 +16,11 @@ namespace TiendaOnline.Win
         public Form1()
         {
             InitializeComponent();
+            var productosBL = new ProductosBL();
+            var listadeProductos = productosBL.ObtenerProductos();
+            listadeProductosBindingSource.DataSource = listadeProductos;
         }
+
+        
     }
 }
