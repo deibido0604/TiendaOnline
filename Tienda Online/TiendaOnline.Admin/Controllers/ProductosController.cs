@@ -30,7 +30,7 @@ namespace TiendaOnline.Admin.Controllers
             var nuevoProducto = new Producto();
             var categorias = _categoriaBL.ObtenerCategorias();
 
-            ViewBag.ListaCategorias = new SelectList(categorias, "Id", "Descripcion");
+            ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion");
 
             return View(nuevoProducto);
         }
@@ -46,6 +46,10 @@ namespace TiendaOnline.Admin.Controllers
         public ActionResult Editar(int id)
         {
             var producto = _productoBL.ObtenerProductos(id);
+            var categorias = _categoriaBL.ObtenerCategorias();
+
+            ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion", producto.CategoriaId);
+
             return View(producto);
         }
 
@@ -66,6 +70,9 @@ namespace TiendaOnline.Admin.Controllers
         public ActionResult Eliminar(int id)
         {
             var producto = _productoBL.ObtenerProductos(id);
+            var categorias = _categoriaBL.ObtenerCategorias();
+
+            ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion", producto.CategoriaId);
 
             return View(producto);
         }
